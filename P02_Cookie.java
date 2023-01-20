@@ -29,31 +29,53 @@ public class P02_Cookie extends TestBase {
         driver.get("https://techproeducation.com");
         Thread.sleep(5000);
 
+//        //Sayfadaki cookie lerin sayısını yazdırınız
+//        Set<Cookie> cookies = driver.manage().getCookies();
+//        System.out.println("Cookilerin Sayısı = "+cookies.size());
+//
+//        //Sayfadaki cookie lerin isim ve değerlerini yazdırınız
+//        for (Cookie c:cookies) {
+//            System.out.println(c.getName()+":"+c.getValue());
+//        }
+//
+//        //Yeni bir cookie ekleyiniz
+//        Cookie myCookie = new Cookie("myCookie","123456789");
+//        driver.manage().addCookie(myCookie);
+//
+//        //Yeni cookie eklendikten sonra cookie sayısını ve isimlerini yazdırınız
+//        Set<Cookie> cookies2 = driver.manage().getCookies();
+//        System.out.println("Cookilerin Sayısı = "+cookies2.size());
+//        for (Cookie w:cookies2) {
+//            System.out.println(w.getName() + ":" + w.getValue());
+//        }
+//        //Oluşturduğumuz cookie'i silelim
+//        driver.manage().deleteCookie(myCookie);
+//
+//        //Tüm cookieleri silelim
+//        driver.manage().deleteAllCookies();
+//        Set<Cookie> cookies3 = driver.manage().getCookies();
+//        System.out.println(cookies3.size());
+
+
         //Sayfadaki cookie lerin sayısını yazdırınız
         Set<Cookie> cookies = driver.manage().getCookies();
-        System.out.println("Cookilerin Sayısı = "+cookies.size());
+        System.out.println(cookies.size());
 
         //Sayfadaki cookie lerin isim ve değerlerini yazdırınız
-        for (Cookie c:cookies) {
-            System.out.println(c.getName()+":"+c.getValue());
+        for (Cookie w:cookies) {
+            System.out.println(w.getName()+" : "+w.getValue());
         }
 
         //Yeni bir cookie ekleyiniz
-        Cookie myCookie = new Cookie("myCookie","123456789");
-        driver.manage().addCookie(myCookie);
+        Cookie newCookies = new Cookie("Yeni Cookie","123456");
+        driver.manage().addCookie(newCookies);
 
-        //Yeni cookie eklendikten sonra cookie sayısını ve isimlerini yazdırınız
-        Set<Cookie> cookies2 = driver.manage().getCookies();
-        System.out.println("Cookilerin Sayısı = "+cookies2.size());
-        for (Cookie w:cookies2) {
-            System.out.println(w.getName() + ":" + w.getValue());
-        }
         //Oluşturduğumuz cookie'i silelim
-        driver.manage().deleteCookie(myCookie);
+        driver.manage().deleteCookie(newCookies);
 
         //Tüm cookieleri silelim
         driver.manage().deleteAllCookies();
-        Set<Cookie> cookies3 = driver.manage().getCookies();
-        System.out.println(cookies3.size());
+        Set<Cookie> sonHali = driver.manage().getCookies();
+        System.out.println(sonHali.size());
     }
 }
